@@ -1,0 +1,35 @@
+snippet if
+	if ( ${1:condition} ) then
+		${2}
+	endif
+snippet ife
+	if ( ${1:condition} ) then
+		${2:if_commands}
+	else
+		${3:else_commands}
+	endif
+snippet while
+	while ( ${1:condition} )
+	end
+snippet set
+	set ${1:var} = ${2:value}
+snippet ifdir
+	if ( -d ${1:direction} ) then
+		${2}
+	endif
+snippet ifedir
+	if ( -d ${1:direction} ) then
+		${2}
+	else
+		${3}
+	endif
+snippet iffile
+	if ( -e ${1:direction} ) then
+		${2}
+	endif
+snippet ifefile
+	if ( -e ${1:direction} ) then
+		${2}
+	else
+		${3}
+	endif

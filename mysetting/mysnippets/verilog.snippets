@@ -1,0 +1,21 @@
+#vim:tabstop=4,ft=verilog
+snippet initial
+	initial begin
+		${1}
+	end
+snippet always
+	always @( ${1} ) begin
+		${2}
+	end
+snippet if
+	if ( ${1} ) begin
+		${2}
+	end
+snippet ife
+	if ( ${1} ) begin
+		${2}
+	end else
+		${3}
+	end
+snippet $display
+	$display(${1});

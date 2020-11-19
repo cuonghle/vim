@@ -1,0 +1,192 @@
+*myvim* using VIM doc by Quang P
+
+Install:
+=====================
+    cp ~quangp/.vim ~
+    ln -s ~/.vim/mysetting/vimrc ~/.vimrc
+
+    Below <key mapping> is defined in ~/.vim/mysetting/map.vim
+    You could define another mapping based on your style !
+
+Usage general
+=====================
+    ,ba            : put all current buffers to tabs, each buffer on 1 tab
+    '<,'>Align =   : align a block of text by "=" character. Replace '=' by another symbol or string
+    ,a<space>      : align spaces
+        >>         : shift right current line to a tab
+        <<         : shift left current line to a tab
+        ==         : if cursor is at a block, it will index entire block
+    ,ss            : save current session
+    ,os            : open a saved session
+    <ctrl-h>       : select the tab on the LEFT hand site (of current buffer)
+    <ctrl-l>       : select the tab on the RIGHT hand site (of current buffer)
+    <F2>           : save file (work in both of edit or command mode)
+    %              : jump to begin/end of the block base on mapped word (ex: begin & end, { & })
+    <C-O>          : jump to previous cursor position
+    <C-I>          : jump to next cursor position
+    K K            : expand VISUAL region (ex: KK will select a paragraph)
+      J            : shrink VISUAL region
+    <f9> or <f10>  : increase/decrease the number that closest to cursor
+
+Open a large file
+=====================
+    Large file takes huge time for openning due to plugins loaded, below command
+    is to reduce loading time at open
+        /usr/bin/vim -b -n <file>
+
+    To make vim detect large file automatically, you could use below script
+        mkdir ~/bin
+        cp ~/../quangp/bin/vi ~/bin
+        echo 'alias vi ~/bin/vi' >> ~/user.cshrc
+    Above command is to create a folder "bin" at your home & copy my "vi" script
+    to it. Then, add an alias to user.cshrc. Now, whenever you use "vi <file>",
+    it will use "~/bin/vi". This script detects filesize and enable "-b -n" open
+    automatically.
+
+Use ctags and cscope
+=====================
+  Ctags and Cscope are tool that allows to list-up/jump to definition/calling of
+  a method (verilog, C,..). To use it, firstly create database files by
+    ~/bin/gen_tags
+  This will create .dv_tags, .libset_tags and *cscope.out at
+  /proj/$MYGROUP/wa/$USER folder
+
+  Mapping
+     <c-]>         : jump to definition of the method/task/module/... (this use CTAGS database)
+     ///           : list up all method & the place that call this method (this use CSCOPE)
+
+  Note
+     - /// may list up many items because there might be many files that executes
+     the method. 
+     - You need to re-generate database files whenever you update designs.
+
+TODO list
+=====================
+    ,fm            : show line contains TODO, FIXME, XXX. Navigate to the task & press enter 
+
+Open a verilog design
+=====================
+    gf             : 'gf' is to open a file at cursor. If it is a module name,
+                VIM will open the module verilog file.
+
+Syntax check
+=====================
+    :w             : a syntax "checker" will be executed, useful when editing scripts (ex: perl)
+    :update        : save file without syntax check
+
+cscope
+=====================
+    Create cscope.out
+        find . -name "*.v" > verilog.files
+        cscope -b
+    Usage:
+      fd | fw      : find definitions in cursor word (jump to it if only 1 matched)
+      fa           : input a word & find its definitions
+      fp           : jump back to previous place (before fd)
+
+
+NERDTree
+=====================
+    ,nt        : open current dir as a tree
+    
+
+NERDCommenter
+=====================
+    ,cc        : VISUAL mode, comment out a block of lines
+    ,c<space>  : VISUAL mode, uncomment the block
+    <ctrl-j>   : comment out a block of code
+    <ctrl-k>   : un-comment out a block of code
+
+Gitv
+=====================
+    ,gd        : show "diff" between version control
+    ,gl        : show "log" of current file (in version control)
+    ,gb        : show "blame" of current file
+    ,gf        : show history of the file
+       <cr>    : open specific version
+       <c-l>   : open specific version to new tab
+       D       : diff with current version (vimdiff)
+
+Ack
+=====================
+    ,fw        : search the word at current cursor, search result is put inside a quickfix window
+    ,fa        : similar with ,fw, but the word is input by terminal
+
+Ctrl-P
+=====================
+    ff         : fuzzy finder for filename
+    fm         : fuzzy finder for recent opened files
+    fb         : fuzzy finder for current open buffers
+    <c-r>      : switch between fuzzy in full-path & filename only
+
+Bookmark
+=====================
+    mm         : toggle bookmark on the line
+    mn         : jump to next bookmark
+    mp         : jump back to previous bookmark
+    mc         : clear bookmarks
+    ma         : show all 
+
+SuperTab
+=====================
+    <tab>      : auto-completion for word at current cursor
+
+SOS support
+=====================
+    Install (with Pathogen): 
+        cp -r ~quangp/.vim/bundle/vcscommand ~/.vim/bundle
+        Put below code to ~/.vimrc
+            map ,gd :call ExecuteVCSCommand("VCSDiff")<CR>
+            map ,gs :call ExecuteVCSCommand("VCSShow")<CR>
+            map ,gc :call ExecuteVCSCommand("VCSCreate")<CR>:q<CR>:e<CR>
+            map ,go :call ExecuteVCSCommand("VCSCheckout")<CR>:q<CR>:e<CR>
+            map ,gi :call ExecuteVCSCommand("VCSCheckin")<CR>:q<CR>:e<CR>
+            map ,gl :call ExecuteVCSCommand("VCSLog")<CR>
+            map ,gb :call ExecuteVCSCommand("VCSBlame")<CR>
+
+    Usage (below is explanation for SOS. It will be different for other repos such as git, svn,..)
+        ,gd     : compare current edit (on going modification, not check-in) with latest version of file
+        ,gs     : show different between 2 latest versions
+        ,gc     : soscmd create 
+        ,go     : soscmd co (please note that if someone else checked out, this will not put the buffer to writeable mode)
+        ,gi     : soscmd ci
+        ,gl     : soscmd history
+
+    Note:
+        Above plugin could work with .git, svn,... repos
+        It detects your current working repo automatically
+        .git, svn,.. repo should work well (because it is original plugin)
+        sos repo might have issue (because I coded it :'( )
+
+CSCOPE
+=====================
+    It is a external tool that could extract design keywords (ex: module
+    name, signal definition,...) to a file, and VIM could load it.
+
+    The script to generate the keyword tag: /user/quangp/bin/gencscope.csh
+    This script will generate cscope.out at /proj/$MYGROUP/wa/$USER folder
+
+        ///     : search current word & list up where
+           <num>  jump to the file that defines the keyword
+
+Pass a text from VIM to another GNU Screen window
+=====================
+    vim-slime allows to pass a text from VIM to a screen/tmux. So, if we connect
+    vim with a interactive program, we could pass text from a script to it. Put
+    below to .vimrc
+
+    Install
+        cp -r ~/../quangp/.vim/bundle/vim-slime-master ~/.vim/bundle
+        cp ~/../quangp/.vim/mysetting/slime.vim ~/.slime.vim
+        echo "source ~/.slime.vim" >> ~/.vimrc
+
+    Usage
+        Open vim
+        Press <f8> to make connection from VIM to a Screen pane
+            You need to input the number of Screen
+            Ex: you open 2 windows. 1st one is Vim. So, after open VIM, press
+            <F8>, and type "2" (no quote) to send text from VIM (window #1) to
+            Window #2A 
+        Press <f8> to send the selected text to destination window
+
+// vim:tw=80

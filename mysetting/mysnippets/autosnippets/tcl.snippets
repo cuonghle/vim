@@ -1,0 +1,220 @@
+snippet get_ref_name
+	get_ref_name ${1:c}
+snippet col2dis
+	col2dis ${1:col}
+snippet get_hdl_compiler_license
+	get_hdl_compiler_license ${1:license}
+snippet suppress_messages
+	suppress_messages 
+snippet is_port
+	is_port ${1:p}
+snippet is_pin
+	is_pin ${1:p}
+snippet load_ver_or_user
+	load_ver_or_user 
+snippet is_var_exist
+	is_var_exist ${1:varname}
+snippet is_proc_exist
+	is_proc_exist ${1:procname}
+snippet set_if
+	set_if ${1:setup_var} ${2:varname}
+snippet do_and_show_command
+	do_and_show_command ${1:command}
+snippet do_proc
+	do_proc ${1:procname} ${2:else_body}
+snippet is_ddc
+	is_ddc ${1:filename}
+snippet is_sv
+	is_sv ${1:filename}
+snippet is_vhdl
+	is_vhdl ${1:filename}
+snippet is_verilog
+	is_verilog ${1:filename}
+snippet design_type
+	design_type ${1:filename}
+snippet load_file_for_debug
+	load_file_for_debug ${1:filename} ${2:top}
+snippet use_read_file_command
+	use_read_file_command ${1:filename}
+snippet load_file
+	load_file ${1:filename}
+snippet do_after_ddc_loaded
+	do_after_ddc_loaded 
+snippet gen_sdc_and_verilog
+	gen_sdc_and_verilog 
+snippet add_block_clocks
+	add_block_clocks ${1:block_name}
+snippet load_files
+	load_files ${1:files}
+snippet report_connection_mismatch
+	report_connection_mismatch 
+snippet report_power_with_toggle_rate
+	report_power_with_toggle_rate ${1:TR}
+snippet report_block_level_info
+	report_block_level_info ${1:root_dir}
+snippet create_unconnected_nets
+	create_unconnected_nets 
+snippet propagate_block_constraints
+	propagate_block_constraints ${1:designlist}
+snippet link_all_sub_blocks
+	link_all_sub_blocks 
+snippet apply_design_rules
+	apply_design_rules 
+snippet write_out_ddc_and_verilog
+	write_out_ddc_and_verilog ${1:filename}
+snippet write_out_verilog
+	write_out_verilog ${1:filename}
+snippet change_design_name
+	change_design_name 
+snippet remove_wand_attr
+	remove_wand_attr 
+snippet remove_wor_attr
+	remove_wor_attr 
+snippet remove_restricted_wires
+	remove_restricted_wires 
+snippet report_retention_cells
+	report_retention_cells 
+snippet report_hier_area
+	report_hier_area 
+snippet get_area
+	get_area ${1:design}
+snippet report_references
+	report_references ${1:area_reports} ${2:prefix} ${3:ref_name}
+snippet is_include_pattern
+	is_include_pattern ${1:str} ${2:patterns}
+snippet mem_clocks
+	mem_clocks ${1:inst}
+snippet bist_regs
+	bist_regs ${1:inst}
+snippet driver_for_pin
+	driver_for_pin ${1:inst} ${2:pin}
+snippet driver_reg
+	driver_reg ${1:inst}
+snippet cell_type
+	cell_type ${1:cellname}
+snippet report_all_macros
+	report_all_macros 
+snippet name
+	name ${1:obj}
+snippet check_logic_tied_to_macro
+	check_logic_tied_to_macro 
+snippet gen_sdc_report
+	gen_sdc_report ${1:design_name}
+snippet report_bist_wrapper
+	report_bist_wrapper ${1:design_name}
+snippet gen_reports
+	gen_reports 
+snippet is_top_syn
+	is_top_syn 
+snippet report_floating_input
+	report_floating_input 
+snippet report_timing_to_file
+	report_timing_to_file ${1:base}
+snippet report_rtl_loop
+	report_rtl_loop 
+snippet report_power_with_toggle_rates
+	report_power_with_toggle_rates 
+snippet array_sorted
+	array_sorted ${1:arr}
+snippet get_async_reset_drivers
+	get_async_reset_drivers 
+snippet report_async_reset
+	report_async_reset 
+snippet report_block_level
+	report_block_level 
+snippet report_unmapped
+	report_unmapped 
+snippet report_log
+	report_log 
+snippet write_out_spef
+	write_out_spef 
+snippet gen_reports_only_for_top
+	gen_reports_only_for_top 
+snippet show_collection_in_name_order
+	show_collection_in_name_order ${1:col}
+snippet report_cell_attributes
+	report_cell_attributes 
+snippet gen_report_for_top
+	gen_report_for_top 
+snippet check_interface
+	check_interface ${1:instance1} ${2:instance2} ${3:stage_ff_pattern}
+snippet get_clock_from_pin
+	get_clock_from_pin ${1:pin}
+snippet do_confirm_clock_on_top
+	do_confirm_clock_on_top ${1:block} ${2:clk_source} ${3:clk_period}
+snippet compare_top_clocks
+	compare_top_clocks 
+snippet add_block_clock
+	add_block_clock ${1:block} ${2:clk}
+snippet report_time
+	report_time 
+snippet report_buffer_trees
+	report_buffer_trees 
+snippet report_runtime
+	report_runtime ${1:command}
+snippet running_script
+	running_script 
+snippet clean_buffer_and_dont_touch_ports
+	clean_buffer_and_dont_touch_ports ${1:ports}
+snippet check_tied_pin
+	check_tied_pin ${1:pin}
+snippet clean_buffer_and_dont_touch
+	clean_buffer_and_dont_touch ${1:pins}
+snippet get_sub_designs
+	get_sub_designs ${1:inst}
+snippet buffer_fanout_count
+	buffer_fanout_count 
+snippet get_hier
+	get_hier ${1:inst} ${2:level}
+snippet parse_timing_path
+	parse_timing_path ${1:path} ${2:level}
+snippet pinname
+	pinname ${1:pin}
+snippet show_timing_path_info
+	show_timing_path_info ${1:endpoint}
+snippet report_unconstrainted_endpoints_csv
+	report_unconstrainted_endpoints_csv 
+snippet bring_up
+	bring_up ${1:pin}
+snippet set_env_vars
+	set_env_vars ${1:vars}
+snippet create_dir
+	create_dir ${1:dir}
+snippet get_tied_ports
+	get_tied_ports ${1:inst} ${2:prefix}
+snippet clean_up_remarks
+	clean_up_remarks ${1:str}
+snippet clean_up_bus_signs
+	clean_up_bus_signs ${1:str}
+snippet source_ipspecs
+	source_ipspecs ${1:dir}
+snippet show_analog_pins_for_cell
+	show_analog_pins_for_cell ${1:cell}
+snippet show_analog_pins
+	show_analog_pins 
+snippet get_element
+	get_element ${1:str} ${2:index}
+snippet get_timing
+	get_timing ${1:outfile} ${2:port}
+snippet gen_external_delay
+	gen_external_delay 
+snippet gen_interface_info
+	gen_interface_info 
+snippet replace_design
+	replace_design ${1:name} ${2:netlist}
+snippet create_hier_group_exclude
+	create_hier_group_exclude ${1:designname} ${2:instname} ${3:inst}
+snippet clean_up_power_domain
+	clean_up_power_domain ${1:inst}
+snippet set_ideal_for_high_fanout_nets
+	set_ideal_for_high_fanout_nets 
+snippet connect_to_top
+	connect_to_top ${1:block} ${2:control_arr} ${3:inst}
+snippet connect_to_inst
+	connect_to_inst ${1:control_arr} ${2:insts}
+snippet get_high_fanout_nets
+	get_high_fanout_nets ${1:{max_fanout_limit} ${2:75}}
+snippet remove_high_fanout_net_pin_cap
+	remove_high_fanout_net_pin_cap ${1:{max_fanout_limit} ${2:75}}
+snippet gen_si_so_for_edt
+	gen_si_so_for_edt ${1:si} ${2:so}

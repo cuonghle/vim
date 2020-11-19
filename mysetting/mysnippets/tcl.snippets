@@ -1,0 +1,29 @@
+# #!/usr/bin/env tclsh
+#vim:tabstop=4 
+# call ReTab()
+snippet forincol
+	foreach_in_collection ${1:i} ${2:var} {
+		${3}
+	}
+snippet sizeofcol
+	sizeof_collection ${1:var}
+snippet write
+	write -f ${1:verilog} -hier -o ${2:verilogout/}
+snippet redirect
+	redirect ${1:filename} {
+		${2}
+	}
+snippet get_cells
+	get_cells -hier * -filter { ${1:condition} }
+snippet get_op
+	get_pins ${1:pin} -filter { pin_direction=="out" }
+snippet get_ip
+	get_pins ${1:pin} -filter { pin_direction=="in" }
+snippet get_ref
+	get_attribute ${1} ref_name
+snippet proc
+	proc ${1:function_name} {${2:parameters}} {
+		${3}
+	}
+snippet source
+	source -echo -verbose 
