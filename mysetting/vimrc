@@ -193,17 +193,6 @@ set ttymouse=xterm2
 "we often need to work on verilog, so add this here to work on all filetypes
 "setlocal includeexpr=substitute(substitute(v:fname,'::','/','g'),'$','.v','')
 set suffixesadd+=.v,.bv,.sv
-if $MYGROUP!=""
-  "set path+=/proj/$MYGROUP/wa/$USER/
-  "set path+=/proj/$MYGROUP/wa/$USER/design/iopads
-  "set path+=/proj/$MYGROUP/wa/$USER/design/*/net
-  "set path+=/proj/$MYGROUP/wa/$USER/design/top/sim/model
-  "set path+=/proj/$MYGROUP/wa/CPU_SUBSYS/current_HHYLP1/design/hyperion_cpusubsys_core/top/net
-  "set path+=/proj/$MYGROUP/wa/CPU_SUBSYS/current_HHYLP1/design/*/*
-  "set path+=/proj/$MYGROUP/wa/CPU_SUBSYS/current_HHYLP1/design/*/*
-  "set path+=/proj/$MYGROUP/wa/TAPEOUT_R1P0/lib/verilog
-  "set path+=/proj/$MYGROUP/libset/current_libset/vg/beh
-end
 
 "execute "set <xUp>=\e[1;*A"
 "execute "set <xDown>=\e[1;*B"
